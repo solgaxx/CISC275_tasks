@@ -8,9 +8,9 @@ export function GiveAttempts(): JSX.Element {
     const [nbAttemptsRequested, setNbAttemptsRequested] = useState<number>(0);
 
     //This is Control
-    function updateNbAttemptsLeft(event: React.ChangeEvent<HTMLInputElement>) {
+    /*function updateNbAttemptsLeft(event: React.ChangeEvent<HTMLInputElement>) {
         setNbAttemptsLeft(parseInt(event.target.value));
-    }
+    }*/
 
     function updateNbAttemptsRequested(
         event: React.ChangeEvent<HTMLInputElement>
