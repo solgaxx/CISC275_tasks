@@ -28,6 +28,31 @@ export function EditMode(): JSX.Element {
         }
     }
 
+    function textInEditMode(): JSX.Element {
+        if (inEditMode === true) {
+            return (
+                <div>
+                    <Form.Check
+                        type="checkbox"
+                        id="is-student-check"
+                        label="Student?"
+                        checked={isStudent}
+                        onChange={updateIsStudent}
+                    />
+                    <Form.Group controlId="formStudentName">
+                        <Form.Label>Name:</Form.Label>
+                        <Form.Control
+                            value={userName}
+                            onChange={updateUserName}
+                        />
+                    </Form.Group>
+                </div>
+            );
+        } else {
+            return <p>{textNotInEditMode()}</p>;
+        }
+    }
+
     //This is View
     return (
         <div>
@@ -37,28 +62,7 @@ export function EditMode(): JSX.Element {
                 checked={inEditMode}
                 onChange={updateInEditMode}
             />
-            <div>
-                {inEditMode ? (
-                    <div>
-                        <Form.Check
-                            type="checkbox"
-                            id="is-student-check"
-                            label="Student?"
-                            checked={isStudent}
-                            onChange={updateIsStudent}
-                        />
-                        <Form.Group controlId="formStudentName">
-                            <Form.Label>Name:</Form.Label>
-                            <Form.Control
-                                value={userName}
-                                onChange={updateUserName}
-                            />
-                        </Form.Group>
-                    </div>
-                ) : (
-                    textNotInEditMode()
-                )}
-            </div>
+            <div>{textInEditMode()}</div>
         </div>
     );
 }
